@@ -1,0 +1,1 @@
+ALTER TABLE public.bots ADD COLUMN IF NOT EXISTS link text;

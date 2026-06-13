@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 4%;
+    --foreground: 210 20% 92%;
+    --card: 220 20% 7%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 215 10% 55%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 16%;
+    --input: 220 15% 16%;
+    --ring: 0 72% 51%;
+    --radius: 0.75rem;
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 0 72% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 0 72% 51%;
+    --glow: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: hsl(0 72% 51% / 0.3);
+    color: hsl(0 0% 100%);
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.4);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--glow) / 0.5), 0 0 40px hsl(var(--glow) / 0.2);
+  }
+  .box-glow {
+    box-shadow: 0 0 20px hsl(var(--glow) / 0.15), 0 0 60px hsl(var(--glow) / 0.05);
+  }
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 40px hsl(var(--glow) / 0.25), 0 0 0 1px hsl(var(--glow) / 0.4);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+  .letter-pop {
+    @apply inline-block transition-all duration-200 ease-out;
+    cursor: none;
+  }
+  .letter-pop:hover {
+    color: hsl(var(--primary));
+    transform: translateY(-3px) scale(1.15);
+    text-shadow: 0 0 12px hsl(var(--glow) / 0.6);
+  }
+  .display-font {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+  .grid-bg {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
